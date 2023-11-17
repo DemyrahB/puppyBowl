@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- import JavaScript -->
+  <script defer src="script.js"></script>
+
+  <!-- import CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <title>PuppyBowl</title>
+</head>
+
+<body>
+<h1>Puppy Bowl</h1>
+  <!-- form to add new players -->
+  <div id="new-player-form">Please complete the form below to add a new puppy player.</div>
+  <div>
+    <img src="https://cdn.shopify.com/s/files/1/2393/5817/files/Blue.jpg?v=1687965287" alt="">
+  </div>
+  <form id="new-player-form">
+    <label for="name">New Puppy Name
+    <input type="text" id="name" name="name" autocomplete="additional-name" required>
+    </label>
+    <label for="breed">Breed
+    <input type="text" id="breed" name="breed">
+    </label>
+    <label for="imgUrl">Image URL
+    <input type="text" id="imgUrl" name="imgUrl" required>
+    </label>
+    <label for="status" id="status" name="status" >Field
+    <input type="radio" name="status">
+    </label>
+    <label for="status" id="status" name="status">Bench
+    <input type="radio" name="status">
+    </label>
+    <input type="button" value="Submit"></a>
+    <script>
+        $(document).ready(function(){
+            $("#button").click(function(){
+                var name = $("#name").val();
+                alert(name);
+            });
+        });
+    </script>
+  </form>
+  <!-- container for all players -->
+  <div id="all-players-container"></div>
+  <table>
+    <tr>
+      <td><img src="https://i5.walmartimages.com/asr/0351f418-7355-4215-8d8a-fee56531dee6.e8fa1d4b1883a6d5465515e24d4df159.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt=""></td>
+      <td><img src="https://i.pinimg.com/originals/14/27/d2/1427d25d3fc6efe68d3b220a9b462066.jpg" alt=""></td>
+      <td><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a0666724-4487-4ccd-9942-68f113ee6664/dfzgtu7-5f4e1fda-5414-4a38-9e20-47ecbb60cdb0.png/v1/fill/w_935,h_855/rainbow_puppy___og_style__blue_s_clues__by_platinumshrineart_dfzgtu7-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MSIsInBhdGgiOiJcL2ZcL2EwNjY2NzI0LTQ0ODctNGNjZC05OTQyLTY4ZjExM2VlNjY2NFwvZGZ6Z3R1Ny01ZjRlMWZkYS01NDE0LTRhMzgtOWUyMC00N2VjYmI2MGNkYjAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.iLyitGz60SlJ4R44waCoCcNKupQ8dds4P5W2VTdiWNM" alt=""></td>
+    </tr>
+    <tr>
+      <td>Name: Magenta</td>
+      <td>Name: Green Puppy</td>
+      <td>Name: Rainbow Puppy</td>
+    </tr>
+    <tr>
+      <td>Breed: Basset Hound</td>
+      <td>Breed: Beagle</td>
+      <td>Breed: Bloodhound</td>
+    </tr>
+    <tr>
+      <td>Status: Field</td>
+      <td>Status: Field</td>
+      <td>Status: Field</td>
+    </tr>
+    </table>
+    <div>
+        <h3>Field Players</h3>
+        <h5>Click the "Delete" button if you'd like to remove one of the current players</h5>
+      <ul>
+        <li>Magenta <button onclick="deleteItem(this)">Delete</button></li>
+        <li>Green Puppy<button onclick="deleteItem(this)">Delete</button></li>
+        <li>Rainbow Puppy <button onclick="deleteItem(this)">Delete</button></li>
+      </ul>
+    </div>
+</body>
+
+</html>

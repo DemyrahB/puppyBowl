@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  form {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  img {
+    width: 150px;
+  }
+  
