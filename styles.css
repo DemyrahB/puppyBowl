@@ -5,13 +5,14 @@
 }
 
 form {
+  font-size: larger;
   width: 200px;
   display: flex;
   flex-direction: column;
 }
 
 img {
-  width: 150px;
+  width: 200px;
 }
 
 h1 {
@@ -19,5 +20,33 @@ h1 {
   font-family:cursive;
   text-align: center;
 }
+
+body {
+  background-color: rgb(170, 252, 170);
+}
+
+#delete-btn {
+  background-color: red;
+}
+
+button {
+  background-color: rgb(32, 199, 255);
+}
+
+#all-players-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input {
+  border: solid;
+}
+
+#player-card {
+  border: dashed;
+}
+
 
 

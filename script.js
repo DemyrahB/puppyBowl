@@ -29,7 +29,8 @@ fetchAllPlayers();
 
 const displayPlayers = (players) => {
   const playersDivs = players.map((player) => {
-    const div = document.createElement("div");
+    const div = document.createElement("div")
+    div.setAttribute('id', 'player-card');
     const image = document.createElement("img");
     image.setAttribute("src", player.imageUrl);
     const nameHolder = document.createElement("p");
@@ -47,7 +48,7 @@ const displayPlayers = (players) => {
     const button2 = document.createElement('button')
     button2.textContent = "See More Details"
     button2.addEventListener('click', function(event){
-        alert(fetchSinglePlayer(playerId))
+        fetchSinglePlayer(player.id)
     })
     div.append(nameHolder, image, breed, status, button, button2);
     return div;
@@ -55,13 +56,14 @@ const displayPlayers = (players) => {
   playerContainer.append(...playersDivs);
 };
 
-const fetchSinglePlayer = async (playerId) => {
+const fetchSinglePlayer = async (id) => {
   try {
-    const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2308-ACC-ET-WEB-PT-B/players/${player.id}`);
+    const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2308-ACC-ET-WEB-PT-B/players/${id}`);
     const result = await response.json();
-    console.log(result);
+    console.log(result.data.player);
+    return result.data
   } catch (err) {
-    console.error(`Oh no, trouble fetching player #${playerId}!`, err);
+    console.error(`Oh no, trouble fetching player #${id}!`, err);
   }
 };
 
@@ -76,12 +78,12 @@ const addNewPlayer = async (players) => {
       body: JSON.stringify(players),
     });
     const result = await response.json();
-    return result;
+    return result
+    ;
   } catch (err) {
     console.error("Oops, something went wrong with adding that player!", err);
   }
 };
-
 const removePlayer = async (playerId) => {
   fetch(APIURL, {
     method: "DELETE",
@@ -141,9 +143,11 @@ const renderNewPlayerForm = () => {
   const newPuppy = {
     name: newPlayerForm.name.value,
     breed: newPlayerForm.breed.value,
+    status: newPlayerForm.status.value,
+    imageUrl: newPlayerForm.imageUrl.value,
   }
     console.log(newPuppy)
-    const addedPuppy = await addNewPlayer(players)
+    const addedPuppy = await addNewPlayer()
     newPlayerForm.prepend(addedPuppy)
 }) 
   } catch (err) {
