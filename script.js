@@ -147,7 +147,7 @@ const renderNewPlayerForm = () => {
     imageUrl: newPlayerForm.imageUrl.value,
   }
     console.log(newPuppy)
-    const addedPuppy = await addNewPlayer()
+    const addedPuppy = await addNewPlayer(newPuppy)
     newPlayerForm.prepend(addedPuppy)
 }) 
   } catch (err) {
