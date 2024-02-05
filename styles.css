@@ -19,10 +19,15 @@ h1 {
   font-size: 60px;
   font-family:cursive;
   text-align: center;
+  color: aqua;
+}
+
+h2 {
+  text-align: center;
 }
 
 body {
-  background-color: rgb(170, 252, 170);
+  background-color: rgb(1, 68, 192);
 }
 
 #delete-btn {
@@ -37,7 +42,7 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 input {
@@ -45,7 +50,10 @@ input {
 }
 
 #player-card {
-  border: dashed;
+  border: solid rgb(230, 159, 5);
+  background-color: rgb(248, 248, 186);
+  text-align: center;
+  
 }
 
 
