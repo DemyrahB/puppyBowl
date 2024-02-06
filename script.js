@@ -43,13 +43,17 @@ const displayPlayers = (players) => {
     button.textContent = "Remove Player"
     button.setAttribute('id', 'delete-btn')
     button.addEventListener('click', ()=> {
-      removePlayer(player.id)
+       removePlayer(player.id)
     })
     const button2 = document.createElement('button')
     button2.textContent = "See More Details"
-    button2.addEventListener('click', function(event){
-        fetchSinglePlayer(player.id)
-    })
+    button2.addEventListener('click', function(){
+        let entries = Object.entries(player)
+        alert(entries)
+       // let data = entries.map( ([key, val] = entry) => {
+        //  return `Player ${player.id}: ${player.name} is a ${player.breed}. They are currently on the ${player.status} `;
+       // }); alert(data)
+    }); 
     div.append(nameHolder, image, breed, status, button, button2);
     return div;
   });
@@ -59,14 +63,13 @@ const displayPlayers = (players) => {
 const fetchSinglePlayer = async (id) => {
   try {
     const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2308-ACC-ET-WEB-PT-B/players/${id}`);
-    const result = await response.json();
-    console.log(result.data.player);
-    return result.data
+        const result = await response.json();
+        console.log(result.data.player);
+        return result
   } catch (err) {
     console.error(`Oh no, trouble fetching player #${id}!`, err);
   }
 };
-
 
 const addNewPlayer = async (players) => {
   try {
@@ -84,6 +87,7 @@ const addNewPlayer = async (players) => {
     console.error("Oops, something went wrong with adding that player!", err);
   }
 };
+
 const removePlayer = async (playerId) => {
   fetch(APIURL, {
     method: "DELETE",
@@ -147,14 +151,13 @@ const renderNewPlayerForm = () => {
     imageUrl: newPlayerForm.imageUrl.value,
   }
     console.log(newPuppy)
-    const addedPuppy = await addNewPlayer(newPuppy)
-    newPlayerForm.prepend(addedPuppy)
+    const addedPuppy = addNewPlayer(newPuppy)
+    newPlayerFormContainer.prepend(addedPuppy)
 }) 
   } catch (err) {
     console.error("Uh oh, trouble rendering the new player form!", err);
   }
 };
-
  
 
 const init = async () => {

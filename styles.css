@@ -35,7 +35,9 @@ body {
 }
 
 button {
-  background-color: rgb(32, 199, 255);
+  background-color: rgb(43, 255, 32);
+  border: none;
+  border-radius: 7px;
 }
 
 #all-players-container {
