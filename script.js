@@ -48,11 +48,7 @@ const displayPlayers = (players) => {
     const button2 = document.createElement('button')
     button2.textContent = "See More Details"
     button2.addEventListener('click', function(){
-        let entries = Object.entries(player)
-        alert(entries)
-       // let data = entries.map( ([key, val] = entry) => {
-        //  return `Player ${player.id}: ${player.name} is a ${player.breed}. They are currently on the ${player.status} `;
-       // }); alert(data)
+        alert(`Player ${player.id}: ${player.name} is a ${player.breed}. ${player.name}'s player status is ${player.status}`)
     }); 
     div.append(nameHolder, image, breed, status, button, button2);
     return div;
