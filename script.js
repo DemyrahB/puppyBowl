@@ -28,6 +28,7 @@ const fetchAllPlayers = async () => {
 fetchAllPlayers();
 
 const displayPlayers = (players) => {
+  playerContainer.innerHTML=""
   const playersDivs = players.map((player) => {
     const div = document.createElement("div")
     div.setAttribute('id', 'player-card');
@@ -42,8 +43,10 @@ const displayPlayers = (players) => {
     const button = document.createElement('button')
     button.textContent = "Remove Player"
     button.setAttribute('id', 'delete-btn')
-    button.addEventListener('click', ()=> {
+    button.addEventListener('click', async ()=> {
        removePlayer(player.id)
+       const response = await fetchAllPlayers()
+      renderAllPlayers(response)
     })
     const button2 = document.createElement('button')
     button2.textContent = "See More Details"
@@ -93,7 +96,6 @@ const removePlayer = async (playerId) => {
       method: "DELETE",
     });
     const result = await response.json();
-    console.log(result);
   } catch (err) {
     console.error(
       `Whoops, trouble removing player #${playerId} from the roster!`,
@@ -147,8 +149,10 @@ const renderNewPlayerForm = () => {
     imageUrl: newPlayerForm.imageUrl.value,
   }
     console.log(newPuppy)
-    const addedPuppy = addNewPlayer(newPuppy)
-    newPlayerFormContainer.prepend(addedPuppy)
+    const addedPuppy = await addNewPlayer(newPuppy)
+    const response = await fetchAllPlayers()
+    renderAllPlayers(response)
+    //newPlayerFormContainer.prepend(addedPuppy)
 }) 
   } catch (err) {
     console.error("Uh oh, trouble rendering the new player form!", err);
